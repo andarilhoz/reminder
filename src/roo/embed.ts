@@ -28,14 +28,14 @@ export const generateEmbed = (
 	if (duration === undefined) {
 		description = start;
 	} else {
-		const duration_ = formatDuration(duration, { format: ['hours', 'minutes'] });
-		description = `Duration: ${duration_}`;
+		const duration_ = formatDuration(duration, { format: ['horas', 'minutos'] });
+		description = `Duração: ${duration_}`;
 
-		fields = [{ name: 'START', value: start, inline: true }];
+		fields = [{ name: 'INICIO', value: start, inline: true }];
 		if (match === MatchKind.StartsNow) {
 			const endDate = add(startDate, duration);
 			const end = toDiscordTimestamp(endDate);
-			fields.push({ name: 'END', value: end, inline: true });
+			fields.push({ name: 'FIM', value: end, inline: true });
 		}
 	}
 
