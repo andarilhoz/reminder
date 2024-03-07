@@ -3,7 +3,7 @@ import { Event, getEventDuration, getEventTime } from './event';
 import { Reset, getResetTime } from './reset';
 import { Trade, getTradeTime } from './trade';
 
-export const ROO_TIME_ZONE = '+07:00';
+export const ROO_TIME_ZONE = '-04:00';
 
 export interface ScheduleTime {
 	hours: number;
