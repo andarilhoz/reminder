@@ -12,6 +12,7 @@ export enum Daily {
 	AnomaliaEspaçoTempo,
 	GuerraDoEmperium,
 	BanqueteDoFimDeSemana,
+	BondeDaUniao
 }
 
 export const getDailies = (date: Date): Daily[] => {
@@ -20,31 +21,31 @@ export const getDailies = (date: Date): Daily[] => {
 	switch (day) {
 		case 0:
 			// sunday
-			return [Daily.Yggdrasil, Daily.FestaTematica, Daily.ExpediçãoDoClã, Daily.GuerraDoEmperium];
+			return [Daily.Yggdrasil, Daily.FestaTematica, Daily.ExpediçãoDoClã, Daily.GuerraDoEmperium, Daily.BondeDaUniao];
 
 		case 1:
 			// monday
-			return [Daily.DesafioExtremo, Daily.BanqueteDoClã];
+			return [Daily.DesafioExtremo, Daily.BanqueteDoClã, Daily.BondeDaUniao];
 
 		case 2:
 			// tuesday
-			return [Daily.BanqueteDoClã, Daily.AnomaliaEspaçoTempo, Daily.LigaDosClãs];
+			return [Daily.BanqueteDoClã, Daily.AnomaliaEspaçoTempo, Daily.LigaDosClãs, Daily.BondeDaUniao];
 
 		case 3:
 			// wednesday
-			return [Daily.ModaDeRune, Daily.BanqueteDoClã, Daily.Arena];
+			return [Daily.ModaDeRune, Daily.BanqueteDoClã, Daily.Arena, Daily.BondeDaUniao];
 
 		case 4:
 			// thursday
-			return [Daily.BanqueteDoClã, Daily.ExpediçãoDoClã, Daily.LigaDosClãs];
+			return [Daily.BanqueteDoClã, Daily.ExpediçãoDoClã, Daily.LigaDosClãs, Daily.BondeDaUniao];
 
 		case 5:
 			// friday
-			return [Daily.BanqueteDoClã];
+			return [Daily.BanqueteDoClã, Daily.BondeDaUniao];
 
 		case 6:
 			// saturday
-			return [Daily.Yggdrasil, Daily.BanqueteDoFimDeSemana, Daily.AnomaliaEspaçoTempo, Daily.LigaDosClãs];
+			return [Daily.Yggdrasil, Daily.BanqueteDoFimDeSemana, Daily.AnomaliaEspaçoTempo, Daily.LigaDosClãs, Daily.BondeDaUniao];
 	}
 };
 
@@ -76,6 +77,9 @@ export const getDailyDuration = (value: Daily): Duration => {
 
 		case Daily.GuerraDoEmperium:
 			return { hours: 1, minutes: 10 };
+		
+		case Daily.BondeDaUniao:
+			return {minutes: 30};
 	}
 };
 
@@ -105,5 +109,7 @@ export const getDailyTime = (value: Daily): ScheduleTime => {
 
 		case Daily.GuerraDoEmperium:
 			return { hours: 21, minutes: 20 };
+		case Daily.BondeDaUniao:
+			return { hours: 18,minutes: 0};
 	}
 };
